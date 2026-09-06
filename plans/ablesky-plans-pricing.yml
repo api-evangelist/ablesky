@@ -1,0 +1,73 @@
+generated: '2026-09-06'
+method: searched
+source: https://www.ablesky.com/product/index/fqa
+description: >-
+  AbleSky publishes no pricing page as such; the commercial terms are stated in
+  its 常见问题 (FAQ) page, which was fetched (HTTP 200) and read on 2026-09-06.
+  The model is free-to-open plus a flat monthly fee for an independently branded
+  school. Values below are quoted from that page verbatim in Chinese and
+  translated; nothing is inferred. THESE ARE PLATFORM PLANS, NOT API PLANS —
+  AbleSky publishes no API and therefore no API pricing, quota or overage.
+plan_count: 2
+currency: CNY
+billing_periods:
+  - monthly
+  - annual
+plans:
+  - name: 网校 (standard online school)
+    name_en: Online school
+    price: 0
+    currency: CNY
+    period: none
+    quota: >-
+      "所有的平台功能都可以使用（约3000个功能）" — approximately 3,000 platform
+      features; "我们提供无限的服务器资源" — unlimited server resources, no
+      customer-provided server required.
+    overage: none stated
+    limits:
+      - No setup fee — "创建网校没有任何费用" (creating an online school carries no fee).
+      - No brand fee — "有没有啥品牌费用? 没有任何费用."
+      - No server cost — AbleSky states it supplies the hosting.
+      - Runs on an AbleSky subdomain rather than the customer's own domain.
+    source: https://www.ablesky.com/product/index/fqa
+  - name: 独立品牌网校 (independent-brand online school)
+    name_en: Independent-brand online school
+    price: 50
+    currency: CNY
+    period: month
+    price_quote: >-
+      "如果你需要独立的品牌，收取非常低的费用。50元/月。" — if you want an independent
+      brand, a very low fee is charged: 50 CNY per month.
+    quota: >-
+      "独立域名网站，独立的APP（Android，iOS），独立的微网校，独立的公众号。所有的平台
+      功能都可以使用（约3000个功能）。" — own-domain website, own Android and iOS
+      apps, own WeChat micro-school and own WeChat official account, plus all
+      ~3,000 platform features.
+    overage: none stated
+    limits:
+      - >-
+        Customer may hold multiple independent domains; the domain must carry a
+        Chinese ICP filing ("按照中国的法律，你要ICP备案").
+      - >-
+        Month-to-month by default; annual prepayment is offered at a discount
+        ("你可以按月付费，如果想有一些折扣，你可以按照年来付"). Cancellable at any time.
+      - Plan changes allowed at any time ("我随时可以购买其他套餐服务").
+    source: https://www.ablesky.com/product/index/fqa
+transaction_fees:
+  - name: Learner course payment
+    rate: 0.9%
+    charged_by: the acquiring bank / payment channel (WeChat Pay, Alipay, credit card)
+    charged_by_ablesky: false
+    quote: >-
+      "学员支付（微信，支付宝，信用卡）课程费用，银行会收取0.9%的费用。能力天空不从中受益。"
+      — the bank takes 0.9%; AbleSky states it takes no share.
+    source: https://www.ablesky.com/product/index/fqa
+notes:
+  - >-
+    No enterprise or independent-deployment price is published. The independent
+    deployment page (https://1.ablesky.com/product/index/deployment, HTTP 200)
+    describes server sizing and a deployment timeline for a 300k-DAU install but
+    states no price, tier or package — that route is a sales conversation.
+  - >-
+    Data export on exit is offered ("随时关闭，并且我们会协助你导出数据"), which is a
+    real portability commitment worth recording even though it carries no price.

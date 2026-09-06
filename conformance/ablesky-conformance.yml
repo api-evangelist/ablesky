@@ -1,0 +1,124 @@
+generated: '2026-09-06'
+method: searched
+source: >-
+  Live probes of AbleSky's public web surface on 2026-09-06 plus the one
+  machine-readable document AbleSky actually publishes, an OpenSearch 1.1
+  description at https://www.ablesky.com/s/opensearch.xml (HTTP 200,
+  application/xml), correctly advertised from the homepage with
+  <link rel="search" type="application/opensearchdescription+xml">.
+description: >-
+  AbleSky publishes no OpenAPI, AsyncAPI, GraphQL SDL, WSDL, .proto or MCP
+  manifest, so almost every entry below is a recorded absence rather than a
+  derivation. The single positive is OpenSearch 1.1 — a real, first-party,
+  correctly-discoverable descriptor. Domain standards for this provider's market
+  (education technology) were checked against the shortlist and none is declared
+  anywhere on the surface; that is recorded as a non-conformance, not invented.
+standards:
+  - id: opensearch-1.1
+    conforms: true
+    evidence: >-
+      https://www.ablesky.com/s/opensearch.xml returns a valid OpenSearch 1.1
+      description document (xmlns http://a9.com/-/spec/opensearch/1.1/) with
+      ShortName, Description, Tags, InputEncoding, Image, a results Url template
+      (http://s.ablesky.com/s.do?aft=Course&key={searchTerms}), Contact
+      service@ablesky.com, Developer bxu@ablesky.com and Attribution
+      "copyright AbleSky, Inc." It is auto-discoverable: the homepage carries
+      <link rel="search" type="application/opensearchdescription+xml"
+      href="https://www.ablesky.com/s/opensearch.xml">. Saved verbatim as
+      conformance/ablesky-opensearch.xml.
+    note: >-
+      The only Url template is type="text/html" — the endpoint returns a rendered
+      course-search page, not a data representation (no Atom/RSS/JSON Url). This
+      is a discovery contract for a human-facing search box, and that is why no
+      apis[] entry was created from it.
+  - id: robots-txt
+    conforms: true
+    evidence: >-
+      https://www.ablesky.com/robots.txt returns HTTP 200 text/plain with
+      "User-agent: *", an empty Disallow (nothing blocked), "Crawl-delay: 15",
+      and a Sitemap declaration pointing at http://www.ablesky.com/sitemap.xml.
+      No crawler is excluded, so nothing in this profile was gathered against a
+      stated robots policy.
+  - id: openapi
+    conforms: false
+    evidence: >-
+      No OpenAPI/Swagger document at any host. Probed /openapi.json,
+      /swagger.json, /v2/api-docs, /api-docs, /apis.json and /graphql on
+      www.ablesky.com (all HTTP 404) and /openapi.json, /swagger.json,
+      /v1/openapi.json, /docs on api.ablesky.com (all HTTP 403 from a blanket
+      deny). open., developer., docs. and openapi.ablesky.com do not answer.
+  - id: asyncapi
+    conforms: false
+    evidence: No AsyncAPI document and no documented webhook or event surface.
+  - id: graphql
+    conforms: false
+    evidence: https://www.ablesky.com/graphql returns HTTP 404; no GraphQL surface found.
+  - id: mcp
+    conforms: false
+    evidence: >-
+      No hosted or local MCP server published by AbleSky, and no OpenAPI to
+      derive a candidate tool list from.
+  - id: a2a-agent-card
+    conforms: false
+    evidence: >-
+      /.well-known/agent-card.json and /.well-known/agent.json probed on eleven
+      AbleSky hosts. Every real answer was 404; 1.ablesky.com returns HTTP 200
+      with a 31,546-byte HTML SPA shell for every /.well-known/ path, which fails
+      the AgentCard shape test and was rejected. See
+      well-known/ablesky-well-known.yml.
+  - id: oauth2
+    conforms: false
+    evidence: >-
+      No /.well-known/oauth-authorization-server on any host (404 everywhere it
+      answers). Sign-in is a first-party form at
+      https://www.ablesky.com/login.do; no OAuth 2.0 authorization endpoint,
+      client registration or scope reference is published.
+  - id: oidc
+    conforms: false
+    evidence: No /.well-known/openid-configuration on any AbleSky host (HTTP 404).
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: >-
+      /.well-known/security.txt returns 404 on www.ablesky.com and every other
+      host that answers; no vulnerability-disclosure contact is published.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: No published error contract of any kind; nothing to assess.
+  - id: llms-txt
+    conforms: false
+    evidence: https://www.ablesky.com/llms.txt returns HTTP 404.
+domain_standards:
+  - id: lti
+    conforms: false
+    evidence: >-
+      No IMS Global / 1EdTech Learning Tools Interoperability launch endpoint,
+      tool configuration, or LTI Advantage claim anywhere on the public surface.
+      Checked because AbleSky sells an online-school platform to K-12 and
+      training institutions (k12.ablesky.com, edu.ablesky.com), the market where
+      LTI is the interoperability standard.
+  - id: scorm
+    conforms: false
+    evidence: >-
+      Courseware is authored and uploaded through AbleSky's own 课件助手 (course
+      assistant) tool and played by its own player (product.ablesky.com/p/a,
+      /p/p); no SCORM or xAPI/Tin Can package import or endpoint is documented.
+  - id: xapi
+    conforms: false
+    evidence: No xAPI (Experience API) Learning Record Store or statement endpoint published.
+  - id: oneroster
+    conforms: false
+    evidence: >-
+      No OneRoster roster/gradebook endpoint or CSV bulk profile documented for
+      the K-12 product.
+  - id: caliper
+    conforms: false
+    evidence: No Caliper Analytics event profile or sensor endpoint published.
+  - id: oai-pmh
+    conforms: false
+    evidence: >-
+      No OAI-PMH verb endpoint. The only metadata harvesting surface AbleSky
+      publishes is the OpenSearch course-search descriptor above.
+note: >-
+  REWARD-ONLY: a provider whose market has no standard is not penalised, and
+  nothing here was invented to fill a slot. Every domain_standards entry above
+  was probed or read for on AbleSky's own surface and recorded as absent.

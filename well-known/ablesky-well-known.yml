@@ -1,0 +1,185 @@
+generated: '2026-09-06'
+method: probed
+source: >-
+  Live probe of the /.well-known/ discovery surface on every AbleSky host this
+  record knows: the registrable domain (ablesky.com), www, the API host
+  (api.ablesky.com), and each product/marketing host reachable from the site
+  navigation. AbleSky publishes no OpenAPI, so there are no servers[] hosts to
+  add. Status is the HTTP code observed at fetch time on 2026-09-06.
+description: >-
+  NOTHING WAS FOUND. Every named /.well-known/ path either 404s or is answered
+  by a catch-all. Two hosts need reading rather than trusting: api.ablesky.com
+  (nginx/1.6.0) returns a blanket 403 on every path including "/", so it is a
+  locked host rather than a 404; 1.ablesky.com and wx.ablesky.com serve the same
+  marketing single-page app and answer HTTP 200 with an identical 31,546-byte
+  text/html shell for every unmatched path, which is a soft-200, not a document.
+  No WellKnown or SecurityTxt pointer is emitted in apis.yml, because there is no
+  document to point at.
+hosts:
+  - host: https://www.ablesky.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://ablesky.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+  - host: https://api.ablesky.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+        note: >-
+          nginx/1.6.0 default 403 body (168 bytes) — this host refuses every
+          path, including "/". Not a document, and not evidence of absence.
+      - path: /.well-known/openid-configuration
+        status: 403
+        note: blanket 403, as above.
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+        note: blanket 403, as above.
+      - path: /.well-known/api-catalog
+        status: 403
+        note: blanket 403, as above.
+      - path: /.well-known/ai-plugin.json
+        status: 403
+        note: blanket 403, as above.
+  - host: https://wx.ablesky.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://1.ablesky.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        type: text/html
+        note: >-
+          Soft-200. 31,546-byte marketing SPA shell, byte-identical to the shell
+          returned for every other /.well-known/ path on this host and to
+          https://1.ablesky.com/ itself. Not a security.txt; not saved.
+      - path: /.well-known/openid-configuration
+        status: 200
+        type: text/html
+        note: Same SPA shell. Not an OIDC discovery document; not saved.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        type: text/html
+        note: Same SPA shell. Not authorization-server metadata; not saved.
+      - path: /.well-known/api-catalog
+        status: 200
+        type: text/html
+        note: Same SPA shell. Not an RFC 9727 api-catalog; not saved.
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        type: text/html
+        note: Same SPA shell. Not an ai-plugin manifest; not saved.
+      - path: /.well-known/agent.json
+        status: 200
+        type: text/html
+        note: >-
+          Same SPA shell. REJECTED as an A2A agent card — the body is HTML, not a
+          JSON object with AgentCard shape. This is the dominant false positive
+          on the agent-card probe and it is why no a2a/ artifact exists here.
+  - host: https://edu.ablesky.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+  - host: https://k12.ablesky.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://study.ablesky.com
+    documents:
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://product.ablesky.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://zb.ablesky.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: https://yike.ablesky.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+  - host: https://hy.ablesky.com
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404

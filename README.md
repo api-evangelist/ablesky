@@ -64,5 +64,23 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Ablesky is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://equityzen.com/company/ablesky
+AbleSky, Inc. (能力天空) is an online-education SaaS company incorporated in 2007 in Mountain View,
+California, operating in China through its wholly owned subsidiary 能力天空科技（北京）有限公司 in Beijing.
+Its platform lets a school, training institution or instructor stand up a branded online school —
+website, Android and iOS apps, WeChat micro-school and official account — with course hosting, live
+classes, exams, educational-administration workflow, course distribution and learner payment
+collection.
+
+**AbleSky publishes no public API.** Contract discovery was run in full on 2026-09-06 against twelve
+AbleSky hosts and every probe missed: no OpenAPI or Swagger (`/openapi.json`, `/swagger.json`,
+`/v2/api-docs`, `/api-docs`, `/apis.json` all 404), no GraphQL, no AsyncAPI or webhook catalogue, no
+WSDL, no `.proto`, no MCP server, no A2A agent card, and no `/.well-known/` document of any kind.
+`api.ablesky.com` exists but answers a blanket nginx/1.6.0 HTTP 403 on every path including `/`. The
+one machine-readable document AbleSky does publish is a valid, correctly auto-discoverable
+[OpenSearch 1.1 course-search descriptor](https://www.ablesky.com/s/opensearch.xml), saved verbatim
+in `conformance/`.
+
+- Website: https://www.ablesky.com/
+- FAQ / commercial terms: https://www.ablesky.com/product/index/fqa
+- GitHub organization: https://github.com/ablesky
+- Secondary-market listing: https://equityzen.com/company/ablesky

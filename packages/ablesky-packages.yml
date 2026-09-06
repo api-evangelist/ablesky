@@ -1,0 +1,73 @@
+generated: '2026-09-06'
+method: searched
+source: >-
+  Registry metadata endpoints queried unauthenticated on 2026-09-06
+  (registry.npmjs.org, pypi.org/pypi/<pkg>/json) plus a GitHub search across
+  users, organizations and repositories for "ablesky", which resolved the
+  first-party organization https://github.com/ablesky (name "AbleSky", blog
+  http://www.ablesky.com, location beijing, 3 public repositories).
+description: >-
+  AbleSky publishes NO API client SDK in any language. There is exactly one
+  first-party package on any public registry, and it is a build tool for the
+  company's own static assets, not a client library for an API. It is recorded
+  here because its publish date is the strongest dated abandonment signal
+  available for this provider: the only thing AbleSky ever shipped to a package
+  registry was last released in January 2014. No `SDKs` pointer is emitted in
+  apis.yml, because sdk_count must not be credited for a webpack build tool.
+sdk_count: 0
+packages:
+  - name: ablejs
+    registry: npm
+    url: https://www.npmjs.com/package/ablejs
+    official: true
+    api_client: false
+    version: 0.2.0
+    published: '2014-01-13'
+    language: JavaScript
+    description: The statics build tools for ablesky
+    source_code: https://github.com/ablesky/ablejs
+    note: >-
+      First-party: the npm package's repository field points at
+      github.com/ablesky/ablejs, a repo in AbleSky's own GitHub organization,
+      and the description names ablesky. It is a static-asset build pipeline
+      (the repo was last pushed 2017-09-14), NOT an API client — it wraps no
+      AbleSky endpoint and there is no AbleSky API for it to wrap. Latest
+      published version 0.2.0, 2014-01-13, read from
+      https://registry.npmjs.org/ablejs.
+absent:
+  - registry: npm
+    query: ablesky
+    result: 404 Not found
+  - registry: npm
+    query: able-js
+    result: 404 Not found
+  - registry: pypi
+    query: ablesky
+    result: HTTP 404
+  - registry: rubygems
+    query: ablesky
+    result: not searched — no AbleSky Ruby surface referenced anywhere in the docs
+other_first_party_repos:
+  - name: asdeploy-java
+    url: https://github.com/ablesky/asdeploy-java
+    language: Java
+    description: AbleSky 代码发布系统 (internal code-release/deploy system)
+    last_pushed: '2015-05-24'
+    published_to_registry: false
+  - name: interviewing-front-end-engineers
+    url: https://github.com/ablesky/interviewing-front-end-engineers
+    description: howto interview a front-end engineer
+    last_pushed: '2014-03-31'
+    published_to_registry: false
+rejected:
+  - name: open_api_ablesky
+    url: https://github.com/itwenqiang/open_api_ablesky
+    reason: >-
+      REJECTED ON OWNERSHIP (STEP 0c). A personal Vue.js admin console named
+      "open_api_ablesky" whose config/api.config.js hard-codes RFC 1918 private
+      addresses (http://192.168.202.190:8081 and http://192.168.3.253:8081) as
+      its base URL, and whose /openApi/* calls are merchant and shop onboarding
+      (edu_merchants_create, merchants_view, shop_create) rather than online
+      education. It is not served by any host AbleSky controls, it is not in the
+      AbleSky organization, and nothing in it ties the endpoints to ablesky.com.
+      No artifact was derived from it.

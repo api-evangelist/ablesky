@@ -1,0 +1,86 @@
+generated: '2026-09-06'
+method: probed
+source: >-
+  Direct TLS/DNS/HTTP probes run on 2026-09-06 against AbleSky's own hosts
+  (openssl s_client for the certificate and protocol ceiling, dig for DNSSEC/CAA/
+  SPF/DMARC, curl for response headers). The shared probe-domain-security.py
+  helper was run twice and reported "unreachable" both times — the Beijing origin
+  (222.249.69.0/24) is slow enough from this vantage point to exceed the helper's
+  connect timeout, and an earlier run of it had recorded equityzen.com, the
+  secondary-market listing host that used to sit in apis.yml as Website, which is
+  not an AbleSky property. That stale record has been replaced by these
+  measurements of the real domain.
+description: >-
+  AbleSky serves HTTPS correctly on a wildcard certificate but the posture is
+  dated: the origin negotiates no higher than TLS 1.2, the certificate is a
+  domain-validated one from a small Chinese CA, and NONE of the four cheap DNS
+  hardening records is published — no DNSSEC, no CAA, no SPF, no DMARC. Absence
+  of a record is valid data, not a probe failure; each was queried directly and
+  returned empty.
+hosts:
+  - host: www.ablesky.com
+    https: true
+    http_status: 200
+    server: nginx/1.22.1
+    tls_version: TLSv1.2
+    tls13_supported: false
+    tls13_evidence: >-
+      openssl s_client -tls1_3 returns "tlsv1 alert protocol version" (alert 70);
+      the server refuses TLS 1.3 and tops out at TLS 1.2.
+    cert_subject: CN=*.ablesky.com
+    cert_san:
+      - '*.ablesky.com'
+      - ablesky.com
+    cert_issuer: >-
+      C=CN, O=Beijing Xinchacha Credit Management Co., Ltd.,
+      CN=Xcc Trust DV SSL CA
+    cert_validation: DV
+    cert_not_before: '2025-10-15'
+    cert_expires: '2026-10-15'
+    hsts: false
+    hsts_max_age: null
+    note: >-
+      No Strict-Transport-Security header on the 200 response. http:// does
+      301 to https://, so the redirect is in place; only the HSTS commitment is
+      missing.
+  - host: ablesky.com
+    https: true
+    tls_version: TLSv1.2
+    cert_covered_by_san: true
+    hsts: false
+    note: Apex 301s to https and is covered by the same wildcard certificate.
+  - host: api.ablesky.com
+    https: true
+    http_status: 403
+    server: nginx/1.6.0
+    tls_version: TLSv1.2
+    cert_covered_by_san: true
+    hsts: false
+    note: >-
+      Blanket 403 on every path including "/", from nginx 1.6.0 — a 2014-era
+      build. Recorded as an observation about the deployed banner, not as a
+      vulnerability finding; nothing was probed beyond ordinary GETs.
+domains:
+  - domain: ablesky.com
+    dnssec: false
+    dnssec_evidence: DNSKEY and DS queries both return empty.
+    caa: []
+    caa_evidence: >-
+      No CAA record — any public CA may issue for this domain. Notable given the
+      wildcard certificate in use.
+    spf: false
+    spf_evidence: >-
+      The only TXT record on the apex is a 64-hex verification token
+      ("8d6f7a20...6fccbe"); there is no v=spf1 record, so no sender policy is
+      published for a domain that does accept mail (MX 10 mailin.ablesky.com).
+    dmarc: false
+    dmarc_policy: null
+    dmarc_evidence: _dmarc.ablesky.com TXT returns empty.
+    mx:
+      - 10 mailin.ablesky.com
+    nameservers:
+      - vip1.alidns.com
+      - vip2.alidns.com
+    hosting: >-
+      Self-hosted on 222.249.69.20-22 (Beijing), DNS on Alibaba Cloud DNS. No CDN
+      or WAF in front of the origin.

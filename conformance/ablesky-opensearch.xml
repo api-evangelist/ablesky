@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+	<ShortName>能力天空课程搜索</ShortName>
+	<Description>能力天空AbleSky网络课程搜索</Description>
+	<Tags>能力天空 AbleSky 网络教育 远程教育 云网校 在线学习</Tags>
+	<InputEncoding>UTF-8</InputEncoding>
+	<Image height="16" width="16" type="image/x-icon">
+		http://stat.ablesky.cn/stata/images/favicon.ico
+	</Image>
+	<Url type="text/html" method="get" rel="results"
+		template="http://s.ablesky.com/s.do?aft=Course&amp;key={searchTerms}">
+	</Url>
+	<Contact>service@ablesky.com</Contact>
+	<Developer>bxu@ablesky.com</Developer>
+	<Attribution>copyright AbleSky, Inc.</Attribution>
+</OpenSearchDescription>

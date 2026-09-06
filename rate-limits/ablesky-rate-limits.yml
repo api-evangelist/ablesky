@@ -1,0 +1,35 @@
+generated: '2026-09-06'
+method: searched
+source: >-
+  Full read of AbleSky's public surface on 2026-09-06 — www.ablesky.com and its
+  product, FAQ, download, deployment and help-centre pages, plus
+  https://www.ablesky.com/robots.txt (HTTP 200) — looking for any published
+  request limit, quota, window, burst, response header or exhaustion status.
+description: >-
+  AN HONEST ZERO. AbleSky publishes no API, so there is no API rate limit to
+  record, no documented window or burst, no X-RateLimit-* / RateLimit-* /
+  Retry-After header contract, and no documented status code on exhaustion. The
+  only request-pacing directive AbleSky publishes anywhere is a crawler
+  Crawl-delay, which is a robots.txt courtesy to indexers and is NOT an API rate
+  limit; it is recorded separately below so it is not mistaken for one.
+limit_count: 0
+limits: []
+headers: []
+exhaustion_status: null
+crawler_directives:
+  - source: https://www.ablesky.com/robots.txt
+    http_status: 200
+    content_type: text/plain
+    user_agent: '*'
+    disallow: '' # empty — nothing is excluded from crawling
+    crawl_delay_seconds: 15
+    sitemap: http://www.ablesky.com/sitemap.xml
+    note: >-
+      A robots.txt Crawl-delay applies to crawlers fetching HTML, not to API
+      clients. Recorded for completeness and explicitly NOT counted as a rate
+      limit.
+notes:
+  - >-
+    api.ablesky.com exists and answers, but with a blanket nginx/1.6.0 HTTP 403
+    on every path including "/". A refusal is not a rate limit and no
+    Retry-After or RateLimit header accompanies it.
