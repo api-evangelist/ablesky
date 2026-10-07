@@ -50,6 +50,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Pricing
+  url: https://www.ablesky.com/product/index/fqa
 - type: Website
   url: https://www.ablesky.com/
 - type: Support
