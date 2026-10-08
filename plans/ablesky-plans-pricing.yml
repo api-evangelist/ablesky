@@ -71,3 +71,25 @@ notes:
   - >-
     Data export on exit is offered ("随时关闭，并且我们会协助你导出数据"), which is a
     real portability commitment worth recording even though it carries no price.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - metered
+  units: []
+  plans:
+  - name: 网校 (standard online school)
+    access: other
+    model: metered
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: 独立品牌网校 (independent-brand online school)
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods:
+    - month
