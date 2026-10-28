@@ -1,4 +1,4 @@
-# Ablesky
+# AbleSky
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,23 +64,95 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-AbleSky, Inc. (能力天空) is an online-education SaaS company incorporated in 2007 in Mountain View,
-California, operating in China through its wholly owned subsidiary 能力天空科技（北京）有限公司 in Beijing.
-Its platform lets a school, training institution or instructor stand up a branded online school —
-website, Android and iOS apps, WeChat micro-school and official account — with course hosting, live
-classes, exams, educational-administration workflow, course distribution and learner payment
-collection.
+AbleSky, Inc. (能力天空) is an online-education SaaS company incorporated in 2007 in Mountain View, California, operating in China through its wholly owned subsidiary 能力天空科技（北京）有限公司 in Beijing. Its platform lets a school, training institution or instructor stand up a branded online school — website, Android and iOS apps, WeChat micro-school and official account — with course hosting, live classes, exams, educational-administration workflow, course distribution and learner payment collection, marketed as roughly 3,000 features to training organisations across more than 2,000 Chinese cities. It also sells an independent deployment onto a customer's own cloud or hardware. It publishes NO public API: contract discovery on 2026-09-06 found no OpenAPI, AsyncAPI, GraphQL SDL, WSDL, gRPC service, MCP server, agent card, SDK or developer portal on any AbleSky host. The one machine-readable document it does publish is a valid, auto-discoverable OpenSearch 1.1 course-search descriptor.
 
-**AbleSky publishes no public API.** Contract discovery was run in full on 2026-09-06 against twelve
-AbleSky hosts and every probe missed: no OpenAPI or Swagger (`/openapi.json`, `/swagger.json`,
-`/v2/api-docs`, `/api-docs`, `/apis.json` all 404), no GraphQL, no AsyncAPI or webhook catalogue, no
-WSDL, no `.proto`, no MCP server, no A2A agent card, and no `/.well-known/` document of any kind.
-`api.ablesky.com` exists but answers a blanket nginx/1.6.0 HTTP 403 on every path including `/`. The
-one machine-readable document AbleSky does publish is a valid, correctly auto-discoverable
-[OpenSearch 1.1 course-search descriptor](https://www.ablesky.com/s/opensearch.xml), saved verbatim
-in `conformance/`.
+**Areas:** Company · Education · E-Learning · Online Courses · LMS · Software-as-a-Service · Training · K-12 · Live Streaming · Video · China
 
-- Website: https://www.ablesky.com/
-- FAQ / commercial terms: https://www.ablesky.com/product/index/fqa
-- GitHub organization: https://github.com/ablesky
-- Secondary-market listing: https://equityzen.com/company/ablesky
+## AbleSky on APIs.io
+
+Everything profiled for AbleSky is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ablesky/](https://apis.io/providers/ablesky/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Ablesky Domain Security](https://apis.io/security/ablesky/ablesky-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Ablesky Plans Pricing](https://apis.io/plans/ablesky/ablesky-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Ablesky Rate Limits](https://apis.io/rate-limits/ablesky/ablesky-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.ablesky.com/)
+- [Pricing](https://www.ablesky.com/product/index/fqa)
+- [Sign up](https://www.ablesky.com/org/apply/open?organizationProperty=organization)
+- [Support](https://www.ablesky.com/product/index/fqa)
+- [GitHub](https://github.com/ablesky)
+
+## API Evangelist rating
+
+**Kin Score 14.3** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 2.4 |
+| Access clarity | 38.2 |
+
+**Agent readiness 2.5** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ablesky/](https://apis.io/providers/ablesky/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for AbleSky: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ablesky/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
